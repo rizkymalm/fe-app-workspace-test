@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "lint:staged": "lint-staged"
   },
   "dependencies": {
     "@iconify/react": "^6.0.2",
@@ -24,13 +26,44 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
+    "@eslint/config-helpers": "^0.5.1",
+    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/js": "^9.39.2",
     "@tailwindcss/postcss": "^4",
+    "@types/eslint-plugin-tailwindcss": "^3.17.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint": "^8",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-next": "14.2.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-tailwindcss": "^3.18.2",
+    "eslint-plugin-unused-imports": "^4.3.0",
+    "lint-staged": "^16.2.7",
     "postcss": "^8",
-    "typescript": "^5"
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "typescript": "^5",
+    "typescript-eslint": "^8.54.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "prettier '**/*.{js,jsx,tsx,ts}' --write --ignore-path .gitignore",
+      "next lint --dir '{src,test}/**/*'",
+      "stop-only --file"
+    ],
+    "*.{json,yaml}": [
+      "prettier --write"
+    ]
   }
 }
