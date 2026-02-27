@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ReduxProvider } from "@/redux/provider";
+import "./globals.css";
+import { Providers } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ReduxProvider>
-          {children}
-          {/* <Providers>
-            <DialogStackProvider>{children}</DialogStackProvider>
-            <div id="portal-root" />
-          </Providers> */}
+          <Providers>
+            {children}
+            {/* <DialogStackProvider></DialogStackProvider>
+            <div id="portal-root" /> */}
+          </Providers>
         </ReduxProvider>
       </body>
     </html>
