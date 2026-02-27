@@ -1,6 +1,8 @@
+import { Icon } from '@iconify/react';
 import React, { useRef } from 'react';
 import Draggable from 'react-draggable';
 import { Rnd } from 'react-rnd';
+import { ButtonIcon } from '../button';
 
 interface PropsResize {
     width: number;
@@ -24,6 +26,7 @@ interface Props {
     isActive?: boolean;
     handleResize: (value: PropsResize) => void;
     handlePosition: (value: PropsPosition) => void;
+    onRemove: () => void;
 }
 
 const DraggableBox = ({
@@ -33,6 +36,7 @@ const DraggableBox = ({
     isActive = false,
     handleResize,
     handlePosition,
+    onRemove,
 }: Props) => {
     const nodeRef = useRef(null);
     const trackPos = (data: any) => {
@@ -65,6 +69,14 @@ const DraggableBox = ({
                 ref={nodeRef}
                 className={`h-full w-full rounded-sm ${isActive && 'border border-dashed border-accent-light/50'}`}
             >
+                <div className="absolute right-0 top-0 h-8 w-8">
+                    <ButtonIcon
+                        icon="mdi:close"
+                        iconSize={16}
+                        type="button"
+                        onClick={onRemove}
+                    />
+                </div>
                 {children}
             </div>
         </Rnd>
