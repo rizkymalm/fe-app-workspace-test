@@ -1,7 +1,7 @@
 import { type Action, type SystemState } from '../types';
 
 const initialState: SystemState = {
-    themes: 'dark',
+    themes: 'light',
 };
 
 const initialActionSystem: Action = {

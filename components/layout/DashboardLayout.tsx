@@ -8,7 +8,7 @@ import { useState } from 'react';
 import ButtonThemeSwitch from '../button/ButtonThemeSwitch';
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-    const [toggleSidebar, setToggleSidebar] = useState<string>('expand');
+    const [toggleSidebar, setToggleSidebar] = useState<string>('collapse');
     const [profileCard, setProfileCard] = useState(false);
     const handleSidebarToggle = () => {
         setToggleSidebar(prevState =>
@@ -19,7 +19,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         setProfileCard(!profileCard);
     };
     return (
-        <div className="relative flex min-h-screen max-w-full overflow-hidden bg-bg-light-1 transition-colors duration-300 dark:bg-bg-dark-1">
+        <div className="relative flex min-h-screen max-h-screen max-w-full overflow-hidden bg-bg-light-1 transition-colors duration-300 dark:bg-bg-dark-1">
             <div className="fixed right-0 top-5 z-99 my-auto h-[100px] w-[90px]">
                 <ButtonThemeSwitch />
             </div>
@@ -109,12 +109,12 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                     }
                     width="32"
                     height="32"
-                    className="cursor-pointer dark:text-textDarkPrimary"
+                    className="cursor-pointer dark:text-textDarkPrimary text-textlight-primary"
                     onClick={() => handleSidebarToggle()}
                 />
             </div>
             <div
-                className={`relative z-1 ${toggleSidebar === 'expand' ? 'ml-60' : 'ml-20'} no-scrollbar min-h-screen flex-1 overflow-auto p-4 transition-all duration-300`}
+                className={`relative z-1 ${toggleSidebar === 'expand' ? 'ml-60' : 'ml-20'} no-scrollbar min-h-screen flex-1 overflow-auto pl-4 transition-all duration-300`}
             >
                 {children}
             </div>
