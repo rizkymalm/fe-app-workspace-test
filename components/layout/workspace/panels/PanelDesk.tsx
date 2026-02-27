@@ -1,30 +1,58 @@
-import DeskType1 from '@/public/images/workspace/desk-1.png';
-import DeskType2 from '@/public/images/workspace/desk-2.png';
-import BoxPanelSelection from '@/components/panel/BoxPanelSelection';
+'use client';
 
-const deskOption = [
-    {
-        id: 1,
-        name: 'Desk Type 1',
-        image: DeskType1,
-    },
-    {
-        id: 2,
-        name: 'Desk Type 2',
-        image: DeskType2,
-    },
-];
+import BoxPanelSelection from '@/components/panel/BoxPanelSelection';
+import { useDispatch, useSelector } from 'react-redux';
+import { Reducers } from '@/redux/types';
+import { ButtonPrimary } from '@/components/button';
+import { deskPanel } from '@/constants/desk';
+import { checkValueExists } from '@/lib/helpers';
+import { PropsPanel } from '@/constants/types';
 
 const PanelDesk = () => {
+    const dispatch = useDispatch();
+    const workspaceState = useSelector((state: Reducers) => state.workspace);
+    const handleSelectPanel = ({ id, name, image, width, height, pos }: PropsPanel) => {
+        let data: any[] = workspaceState?.editor?.data || [];
+        const check = checkValueExists(data, 'id', id);
+        if (!check) {
+            data.push({
+                id: id,
+                name: name,
+                image: image,
+                width: width,
+                height: height,
+                pos: pos,
+            });
+            dispatch<any>({
+                type: 'WORKSPACE_EDITOR_SUCCESS',
+                payload: data,
+            });
+        }
+    };
+    const handleClearWorkspaceEditor = () => {
+        dispatch<any>({
+            type: 'WORKSPACE_EDITOR_CLEAR',
+        });
+    };
     return (
         <div className="grid w-full max-w-full grid-cols-2 gap-6 overflow-hidden">
-            {deskOption.map(item => (
+            {deskPanel.map((item: PropsPanel, index: number) => (
                 <BoxPanelSelection
                     image={item.image}
                     name={item.name}
                     key={item.name}
+                    onClick={() => {
+                        handleSelectPanel(deskPanel[index]);
+                    }}
                 />
             ))}
+            <ButtonPrimary
+                size="md"
+                variant="text"
+                text="Clear"
+                type="button"
+                onClick={handleClearWorkspaceEditor}
+            />
         </div>
     );
 };
