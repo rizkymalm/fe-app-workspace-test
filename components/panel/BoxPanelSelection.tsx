@@ -17,11 +17,13 @@ const BoxPanelSelection = ({
 }: Props) => {
     return (
         <div
-            className={`relative cursor-pointer rounded-md border-2 w-full h-31 border-dashed border-text-dark-muted/50 hover:bg-text-light-muted/20 active:bg-text-light-muted/20 ${selected && 'bg-text-light-muted/20'}`}
+            className={`relative cursor-pointer rounded-md border-2 w-full h-25 p-2 border-dashed border-text-dark-muted/50 hover:bg-text-light-muted/20 active:bg-text-light-muted/20 ${selected && 'bg-text-light-muted/20'}`}
         >
             <div className='w-full h-full' style={{
                 backgroundImage: `url(${image})`,
-                backgroundSize: 'cover'
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center'
             }}></div>
             <div className="absolute bottom-0 right-0 h-8 w-8">
                 <ButtonIcon icon="mdi:add" iconSize={32} type="button" onClick={onClick} />

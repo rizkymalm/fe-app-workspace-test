@@ -15,6 +15,7 @@ const PanelLayout = () => {
         image,
         width,
         height,
+        type,
         pos,
     }: PropsPanel) => {
         let data: any[] = workspaceState?.editor?.data || [];
@@ -26,6 +27,7 @@ const PanelLayout = () => {
                 image: image,
                 width: width,
                 height: height,
+                type,
                 pos: pos,
             });
             dispatch<any>({

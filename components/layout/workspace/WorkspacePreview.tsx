@@ -55,7 +55,7 @@ const WorkspacePreview = () => {
         });
     };
     return (
-        <div className="no-scrollbar ml-67.5 flex min-h-screen w-full max-w-[1150px] items-center justify-center bg-bg-light-3 py-2 pl-6 dark:bg-bg-dark-3">
+        <div className="no-scrollbar relative flex min-h-screen flex-1 w-full max-w-[1150px] items-center justify-center bg-bg-light-3 py-2 dark:bg-bg-dark-3">
             <div className="relative h-125 w-180 p-2">
                 <div className="h-full w-full rounded-lg border-2 border-accent-light/30 bg-bg-light-1 dark:bg-dark-1">
                     {panel &&
@@ -95,7 +95,9 @@ const WorkspacePreview = () => {
                                     className={`h-full w-full`}
                                     style={{
                                         backgroundImage: `url(${item.image})`,
-                                        backgroundSize: 'cover',
+                                        backgroundSize: 'contain',
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundPosition: 'center'
                                     }}
                                     onMouseDown={() => setIsActive(index)}
                                     onClick={() => setIsActive(index)}

@@ -20,12 +20,12 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     };
     return (
         <div className="relative flex min-h-screen max-h-screen max-w-full overflow-hidden bg-bg-light-1 transition-colors duration-300 dark:bg-bg-dark-1">
-            <div className="fixed right-0 top-5 z-99 my-auto h-[100px] w-[90px]">
+            <div className="fixed right-0 top-5 z-99 my-auto h-[50px] w-[90px]">
                 <ButtonThemeSwitch />
             </div>
             <div className="bgGradient fixed inset-0 z-0 m-auto h-screen w-screen" />
             <div
-                className={`border-outset fixed inset-y-0 left-0 z-999 m-auto ${toggleSidebar === 'expand' ? 'w-60' : 'w-20'} border-r-2 border-accent-light/50 bg-bg-light-1 text-text-light-primary shadow-custom-light transition-all duration-300 dark:border-accent-dark/50 dark:bg-bg-dark-1 dark:text-text-dark-primary`}
+                className={`border-outset fixed inset-y-0 left-0 z-999 m-auto ${toggleSidebar === 'expand' ? 'w-60' : 'w-20'} border-r border-accent-light/30 bg-bg-light-1 text-text-light-primary shadow-custom-light transition-all duration-300 dark:border-accent-dark/30 dark:bg-bg-dark-1 dark:text-text-dark-primary`}
             >
                 {toggleSidebar === 'expand' ? (
                     <DashboardSidebar />

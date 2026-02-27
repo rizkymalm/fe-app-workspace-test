@@ -10,17 +10,26 @@ import { PropsPanel } from '@/constants/types';
 const PanelDesk = () => {
     const dispatch = useDispatch();
     const workspaceState = useSelector((state: Reducers) => state.workspace);
-    const handleSelectPanel = ({ id, name, image, width, height, pos }: PropsPanel) => {
+    const handleSelectPanel = ({
+        id,
+        name,
+        image,
+        width,
+        height,
+        type,
+        pos,
+    }: PropsPanel) => {
         let data: any[] = workspaceState?.editor?.data || [];
         const check = checkValueExists(data, 'id', id);
         if (!check) {
             data.push({
-                id: id,
-                name: name,
-                image: image,
-                width: width,
-                height: height,
-                pos: pos,
+                id,
+                name,
+                image,
+                width,
+                height,
+                type,
+                pos,
             });
             dispatch<any>({
                 type: 'WORKSPACE_EDITOR_SUCCESS',

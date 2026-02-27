@@ -5,13 +5,14 @@ import PanelDesk from './panels/PanelDesk';
 import PanelLayout from './panels/PanelLayout';
 import PanelAccessories from './panels/PanelAccessories';
 import PanelChair from './panels/PanelChair';
+import PanelMonitor from './panels/PanelMonitor';
 
-const tabOption = ['Layout', 'Desk', 'Chair', 'Accecories'];
+const tabOption = ['Layout', 'Desk', 'Chair', 'Monitor', 'Accecories'];
 
 const WorkspacePanel = () => {
     const [content, setContent] = useState(0);
     return (
-        <div className="absolute inset-y-0 left-0 m-auto h-screen min-h-screen w-72.5 border-r-2 border-accent-light bg-bg-light-1 dark:border-accent-dark dark:bg-dark-1">
+        <div className="h-screen min-h-screen w-70 border-r border-text-dark-muted/30 bg-bg-light-1 dark:border-text-dark-muted/30 dark:bg-dark-1">
             <div className="w-full p-2">
                 <TabGrid
                     options={tabOption}
@@ -30,6 +31,9 @@ const WorkspacePanel = () => {
                         <PanelChair />
                     </TabContent>
                     <TabContent value={content} index={3}>
+                        <PanelMonitor />
+                    </TabContent>
+                    <TabContent value={content} index={4}>
                         <PanelAccessories />
                     </TabContent>
                 </div>

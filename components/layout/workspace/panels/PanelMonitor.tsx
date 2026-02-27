@@ -1,12 +1,12 @@
 'use client';
 import BoxPanelSelection from '@/components/panel/BoxPanelSelection';
-import { chairPanel } from '@/constants/desk';
+import { monitorPanel } from '@/constants/desk';
 import { PropsPanel } from '@/constants/types';
 import { checkValueExists } from '@/lib/helpers';
 import { Reducers } from '@/redux/types';
 import { useDispatch, useSelector } from 'react-redux';
 
-const PanelChair = () => {
+const PanelMonitor = () => {
     const dispatch = useDispatch();
     const workspaceState = useSelector((state: Reducers) => state.workspace);
     const handleSelectPanel = ({
@@ -38,13 +38,13 @@ const PanelChair = () => {
     };
     return (
         <div className="grid w-full max-w-full grid-cols-2 gap-6 overflow-hidden">
-            {chairPanel.map((item: PropsPanel, index: number) => (
+            {monitorPanel.map((item: PropsPanel, index: number) => (
                 <BoxPanelSelection
                     image={item.image}
                     name={item.name}
                     key={item.name}
                     onClick={() => {
-                        handleSelectPanel(chairPanel[index]);
+                        handleSelectPanel(monitorPanel[index]);
                     }}
                 />
             ))}
@@ -52,4 +52,4 @@ const PanelChair = () => {
     );
 };
 
-export default PanelChair;
+export default PanelMonitor;

@@ -11,7 +11,7 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const ButtonIcon = ({ icon, iconSize, type, onClick, ...props }: Props) => {
     return (
         <button
-            className="rounded-md border-transparent bg-transparent p-1 text-accent-dark transition-all"
+            className="border-transparent bg-transparent rounded-full hover:bg-accent-light/20 p-1 text-accent-dark transition-all"
             type={
                 type === 'submit'
                     ? 'submit'
