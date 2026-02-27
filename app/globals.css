@@ -3,8 +3,40 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* ===============================
+   * BACKGROUND
+   =============================== */
+  --bg-1: #F9F9F9;
+  --bg-2: #FFFFFF;
+  --bg-3: #F2F2F5;
+
+  /* ===============================
+   * TEXT
+   =============================== */
+  --text-primary: #1C1C1E;
+  --text-secondary: #3A3A3C;
+  --text-muted: #8E8E93;
+
+  /* ===============================
+   * ACCENT (EMERALD)
+   =============================== */
+  --accent: #22C55E;
+  --accent-hover: #4ADE80;
+  --accent-active: #15803D;
+  --accent-subtle: #DCFCE7;
+  --accent-secondary: #16A34A;
 }
 
 @theme inline {
@@ -22,7 +54,21 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
 }

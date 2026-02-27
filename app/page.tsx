@@ -1,10 +1,13 @@
+import DashboardLayout from "@/components/layout/DashboardLayout";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start text-accent-dark">
-        TEST
-      </main>
-    </div>
+    <DashboardLayout>
+      <div className="container mx-auto min-h-screen w-full max-w-full">
+        <div className="min-h-screen w-full items-center justify-center p-4 text-text-light-primary dark:text-text-dark-primary">
+          
+        </div>
+      </div>
+    </DashboardLayout>
   );
 }
