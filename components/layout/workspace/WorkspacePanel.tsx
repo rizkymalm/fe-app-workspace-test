@@ -2,8 +2,11 @@
 import { TabContent, TabGrid } from '@/components/tabs';
 import { useState } from 'react';
 import PanelDesk from './panels/PanelDesk';
+import PanelLayout from './panels/PanelLayout';
+import PanelAccessories from './panels/PanelAccessories';
+import PanelChair from './panels/PanelChair';
 
-const tabOption = ['Desk', 'Chair', 'Accecories'];
+const tabOption = ['Layout', 'Desk', 'Chair', 'Accecories'];
 
 const WorkspacePanel = () => {
     const [content, setContent] = useState(0);
@@ -18,13 +21,16 @@ const WorkspacePanel = () => {
                 />
                 <div className="mt-4 w-full">
                     <TabContent value={content} index={0}>
-                        <PanelDesk />
+                        <PanelLayout />
                     </TabContent>
                     <TabContent value={content} index={1}>
-                        Chair
+                        <PanelDesk />
                     </TabContent>
                     <TabContent value={content} index={2}>
-                        Chair
+                        <PanelChair />
+                    </TabContent>
+                    <TabContent value={content} index={3}>
+                        <PanelAccessories />
                     </TabContent>
                 </div>
             </div>

@@ -67,9 +67,9 @@ const DraggableBox = ({
         >
             <div
                 ref={nodeRef}
-                className={`h-full w-full rounded-sm ${isActive && 'border border-dashed border-accent-light/50'}`}
+                className={`h-full w-full rounded-sm [&>.button-selector]:hover:opacity-100 ${isActive && 'border border-dashed border-accent-light/50'}`}
             >
-                <div className="absolute right-0 top-0 h-8 w-8">
+                <div className="absolute right-0 top-0 h-8 w-8 button-selector opacity-0">
                     <ButtonIcon
                         icon="mdi:close"
                         iconSize={16}
