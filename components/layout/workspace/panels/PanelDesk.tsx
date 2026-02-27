@@ -22,6 +22,7 @@ const PanelDesk = () => {
                 <BoxPanelSelection
                     image={item.image}
                     name={item.name}
+                    key={item.name}
                 />
             ))}
         </div>

@@ -6,12 +6,12 @@ interface Props {
     selected?: boolean;
 }
 
-const BoxPanelSelection = ({ name, image, selected = false }: Props) => {
+const BoxPanelSelection = ({ name, image, selected = false, ...props }: Props) => {
     return (
         <div
             className={`cursor-pointer rounded-md border-2 border-dashed border-text-dark-muted/50 hover:bg-text-light-muted/20 active:bg-text-light-muted/20 ${selected && 'bg-text-light-muted/20'}`}
         >
-            <Image src={image} alt={name} aria-label={name} />
+            <Image src={image} alt={name} aria-label={name} {...props} />
         </div>
     );
 };

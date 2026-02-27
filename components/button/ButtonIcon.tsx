@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-import React from 'react';
+import React, { JSX } from 'react';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     icon: string;

@@ -6,6 +6,25 @@ import { sidebarConfig } from './SidebarConfig';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import { JSX } from 'react/jsx-runtime';
+
+interface PropsSidebar {
+    name: string;
+    icon: string;
+    link: string;
+    pathMatch: string;
+    type: string;
+    submenu?: PropsSubmenu;
+}
+
+interface PropsSubmenu {
+    map(arg0: (subitem: PropsSubmenu) => JSX.Element): React.ReactNode;
+    name: string;
+    link: string;
+    pathMatch: string;
+    type: string;
+}
+
 const DashboardSidebarCollapse = () => {
     const router = useRouter();
     const [accordion, setAccordion] = useState('');
@@ -23,7 +42,7 @@ const DashboardSidebarCollapse = () => {
             <div className="flex">
                 <ul className="w-full list-none p-4">
                     {sidebarConfig.map(
-                        item =>
+                        (item: PropsSidebar) =>
                             item.type === 'menu' && (
                                 <li
                                     className={`relative my-2 flex cursor-pointer justify-center rounded-md p-2 ${location.pathname === item.pathMatch && 'bg-accent-light/40 dark:bg-accent-dark/40'} text-text-light-primary hover:bg-accent-light/20 dark:text-text-dark-primary hover:dark:bg-accent-dark/20`}
