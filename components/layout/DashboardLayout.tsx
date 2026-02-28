@@ -1,11 +1,12 @@
 'use client';
 
+import { Icon } from '@iconify/react';
+import { useState } from 'react';
+
+import ButtonThemeSwitch from '../button/ButtonThemeSwitch';
 import DashboardSidebar from './DashboardSidebar';
 import DashboardSidebarCollapse from './DashboardSidebarCollapse';
-import { Icon } from '@iconify/react';
 import { menuProfile } from './SidebarConfig';
-import { useState } from 'react';
-import ButtonThemeSwitch from '../button/ButtonThemeSwitch';
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     const [toggleSidebar, setToggleSidebar] = useState<string>('collapse');
@@ -19,7 +20,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         setProfileCard(!profileCard);
     };
     return (
-        <div className="relative flex min-h-screen max-h-screen max-w-full overflow-hidden bg-bg-light-1 transition-colors duration-300 dark:bg-bg-dark-1">
+        <div className="relative flex max-h-screen min-h-screen max-w-full overflow-hidden bg-bg-light-1 transition-colors duration-300 dark:bg-bg-dark-1">
             <div className="fixed right-0 top-5 z-99 my-auto h-[50px] w-[90px]">
                 <ButtonThemeSwitch />
             </div>
@@ -109,7 +110,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                     }
                     width="32"
                     height="32"
-                    className="cursor-pointer dark:text-textDarkPrimary text-textlight-primary"
+                    className="cursor-pointer text-textlight-primary dark:text-textDarkPrimary"
                     onClick={() => handleSidebarToggle()}
                 />
             </div>

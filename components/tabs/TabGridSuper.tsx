@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import ButtonText from '../button/ButtonText';
 
+import ButtonText from '../button/ButtonText';
 
 interface TabGridProps {
     options: string[];

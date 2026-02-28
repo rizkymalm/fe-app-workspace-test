@@ -534,12 +534,7 @@ const config: Config = {
             'left-lg': '-4px 0 12px rgba(0, 0, 0, 0.1)',
         },
     },
-    plugins: [
-        function ({ addVariant }: any) {
-            addVariant('child', '& > *');
-            addVariant('child-hover', '& > *:hover');
-        },
-    ],
+    plugins: [],
     darkMode: 'class',
 };
 export default config;

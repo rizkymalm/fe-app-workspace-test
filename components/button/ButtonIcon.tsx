@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react';
-import React, { JSX } from 'react';
+import type { JSX } from 'react';
+import React from 'react';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     icon: string;
@@ -11,7 +12,7 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const ButtonIcon = ({ icon, iconSize, type, onClick, ...props }: Props) => {
     return (
         <button
-            className="border-transparent bg-transparent rounded-full hover:bg-accent-light/20 p-1 text-accent-dark transition-all"
+            className="rounded-full border-transparent bg-transparent p-1 text-accent-dark transition-all hover:bg-accent-light/20"
             type={
                 type === 'submit'
                     ? 'submit'

@@ -1,11 +1,20 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { ButtonPrimary } from '@/components/button';
 import DraggableBox from '@/components/feature/DraggableBox';
-import { PropsPanel } from '@/constants/types';
-import { Reducers } from '@/redux/types';
-import { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import type { PropsPanel } from '@/constants/types';
+import type { Reducers } from '@/redux/types';
+
+interface PropsSizePosition {
+    width: number | undefined;
+    height: number | undefined;
+    x: number;
+    y: number;
+    index: number;
+}
 
 const WorkspacePreview = () => {
     const dispatch = useDispatch();
@@ -18,33 +27,12 @@ const WorkspacePreview = () => {
             setPanel(workspaceState?.editor?.data);
         }
     }, [workspaceState?.editor?.data]);
-    const handleUpdateSize = (width: number, height: number, index: number) => {
-        let updatedPanel: PropsPanel[] = [...panel];
-
-        updatedPanel[index] = {
-            ...updatedPanel[index],
-            width: width,
-            height: height,
-        };
-        setPanel(updatedPanel);
-    };
-    const handleUpdatePosition = (x: number, y: number, index: number) => {
-        let updatedPanel: PropsPanel[] = [...panel];
-
-        updatedPanel[index] = {
-            ...updatedPanel[index],
-            pos: {
-                x,
-                y,
-            },
-        };
-        setPanel(updatedPanel);
-    };
     const handleSaveUpdated = () => {
         dispatch<any>({
             type: 'WORKSPACE_EDITOR_SUCCESS',
             payload: panel,
         });
+        setIsMove(false);
     };
     const handleRemovePanel = (indexToRemove: number) => {
         const data = panel;
@@ -54,10 +42,30 @@ const WorkspacePreview = () => {
             payload: data,
         });
     };
+    const handleUpdateSizeNPosition = ({
+        width,
+        height,
+        x,
+        y,
+        index,
+    }: PropsSizePosition) => {
+        const updatedPanel: PropsPanel[] = [...panel];
+
+        updatedPanel[index] = {
+            ...updatedPanel[index],
+            width: width || updatedPanel[index].width,
+            height: height || updatedPanel[index].height,
+            pos: {
+                x,
+                y,
+            },
+        };
+        setPanel(updatedPanel);
+    };
     return (
-        <div className="no-scrollbar relative flex min-h-screen flex-1 w-full max-w-[1150px] items-center justify-center bg-bg-light-3 py-2 dark:bg-bg-dark-3">
-            <div className="relative h-125 w-180 p-2">
-                <div className="h-full w-full rounded-lg border-2 border-accent-light/30 bg-bg-light-1 dark:bg-dark-1">
+        <div className="no-scrollbar relative flex min-h-screen w-full max-w-[1150px] flex-1 items-center justify-center bg-bg-light-3 py-2 dark:bg-bg-dark-3">
+            <div className="relative h-125 w-180 flex-col gap-5 p-2">
+                <div className="size-full rounded-lg border-2 border-accent-light/30 bg-bg-light-1 dark:bg-dark-1">
                     {panel &&
                         panel.map((item: PropsPanel, index: number) => (
                             <DraggableBox
@@ -71,20 +79,14 @@ const WorkspacePreview = () => {
                                     y: item.pos.y,
                                 }}
                                 isActive={index === isActive}
-                                handleResize={value => {
-                                    handleUpdateSize(
-                                        value.width,
-                                        value.height,
-                                        index
-                                    );
-                                    setIsMove(true);
-                                }}
-                                handlePosition={value => {
-                                    handleUpdatePosition(
-                                        value.x,
-                                        value.y,
-                                        index
-                                    );
+                                handleResPos={value => {
+                                    handleUpdateSizeNPosition({
+                                        width: value.width,
+                                        height: value.height,
+                                        x: value.x,
+                                        y: value.y,
+                                        index,
+                                    });
                                     setIsMove(true);
                                 }}
                                 onRemove={() => {
@@ -92,16 +94,19 @@ const WorkspacePreview = () => {
                                 }}
                             >
                                 <div
-                                    className={`h-full w-full`}
+                                    className="size-full"
                                     style={{
                                         backgroundImage: `url(${item.image})`,
                                         backgroundSize: 'contain',
                                         backgroundRepeat: 'no-repeat',
-                                        backgroundPosition: 'center'
+                                        backgroundPosition: 'center',
                                     }}
                                     onMouseDown={() => setIsActive(index)}
                                     onClick={() => setIsActive(index)}
-                                ></div>
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-label="rndobject"
+                                />
                             </DraggableBox>
                         ))}
                 </div>
@@ -112,7 +117,7 @@ const WorkspacePreview = () => {
                     type="button"
                     onClick={handleSaveUpdated}
                     disabled={!isMove}
-                    icon='mdi:content-save'
+                    icon="mdi:content-save"
                 />
             </div>
         </div>

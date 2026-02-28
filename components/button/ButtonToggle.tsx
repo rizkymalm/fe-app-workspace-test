@@ -5,7 +5,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 const ButtonToggle = ({ isChecked, ...props }: Props) => {
-    const [checked, setChecked] = useState(isChecked)
+    const [checked, setChecked] = useState(isChecked);
     return (
         <label
             className="themeSwitcherThree relative inline-flex cursor-pointer select-none items-center"
@@ -15,7 +15,7 @@ const ButtonToggle = ({ isChecked, ...props }: Props) => {
                 {...props}
                 type="checkbox"
                 checked={checked}
-                onChange={(e) => setChecked(e.target.checked)}
+                onChange={e => setChecked(e.target.checked)}
                 className="sr-only"
                 id="button-toggle"
             />

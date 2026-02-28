@@ -8,7 +8,7 @@ type RequestOptions = {
 };
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-const API_KEY = process.env.API_KEY;
+const { API_KEY } = process.env;
 
 export async function apiFetch({
     method = 'GET',
@@ -19,7 +19,7 @@ export async function apiFetch({
     headers = {},
 }: RequestOptions) {
     const queryString = params
-        ? '?' + new URLSearchParams(params).toString()
+        ? `?${new URLSearchParams(params).toString()}`
         : '';
 
     const response = await fetch(`${BASE_URL}${endpoint}${queryString}`, {

@@ -1,5 +1,6 @@
+import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
+
 import { ButtonIcon } from '../button';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 interface Props {
     image: string | StaticImport;
@@ -21,7 +22,7 @@ const BoxPanelSelected = ({
             className={`relative h-28 w-full cursor-pointer rounded-md border-2 border-dashed border-text-dark-muted/50 p-2 hover:bg-text-light-muted/20 active:bg-text-light-muted/20 ${selected && 'bg-text-light-muted/20'}`}
         >
             <div
-                className="h-full w-full"
+                className="size-full"
                 style={{
                     backgroundImage: `url(${image})`,
                     backgroundSize: 'contain',

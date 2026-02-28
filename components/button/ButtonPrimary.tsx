@@ -37,7 +37,7 @@ const ButtonPrimary = ({
               : 'px-[18px] py-[10px]';
     return variant === 'contained' ? (
         <button
-            className={`flex justify-center gap-1 border-accent-light bg-accent-light text-text-light-primary hover:border-accent-light hover:bg-accent-light/40 dark:border-accent-dark dark:bg-accent-dark hover:dark:border-accent-dark hover:dark:bg-accent-dark/40 hover:dark:text-text-dark-primary disabled:bg-text-light-muted ${paddingSize} ${textSize} ${fullWidth ? 'w-full' : ''}`}
+            className={`flex justify-center gap-1 rounded-md border-accent-light bg-accent-light text-text-light-primary hover:border-accent-light hover:bg-accent-light/40 disabled:bg-text-light-muted dark:border-accent-dark dark:bg-accent-dark hover:dark:border-accent-dark hover:dark:bg-accent-dark/40 hover:dark:text-text-dark-primary disabled:dark:bg-text-light-muted ${paddingSize} ${textSize} ${fullWidth ? 'w-full' : ''}`}
             disabled={disabled || loading}
             type={
                 type === 'submit'

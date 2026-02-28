@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import ButtonText from '../button/ButtonText';
 
+import ButtonText from '../button/ButtonText';
 
 interface TabGridProps {
     options: string[];
@@ -65,7 +65,7 @@ const TabGrid = ({ options, defaultIndex = 0, onChange }: TabGridProps) => {
     return (
         <div>
             <div
-                className="relative inline-flex border-b border-accent-light/30 dark:border-accent-dark/30 overflow-x-auto max-w-full no-scrollbar"
+                className="no-scrollbar relative inline-flex max-w-full overflow-x-auto border-b border-accent-light/30 dark:border-accent-dark/30"
                 ref={containerRef}
                 onKeyDown={handleKeyDown}
                 role="button"

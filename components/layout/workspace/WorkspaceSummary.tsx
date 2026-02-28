@@ -1,10 +1,12 @@
 'use client';
-import BoxPanelSelected from '@/components/panel/BoxPanelSelected';
-import { PropsPanel } from '@/constants/types';
-import { moveDown, moveUp } from '@/lib/helpers';
-import { Reducers } from '@/redux/types';
+
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import BoxPanelSelected from '@/components/panel/BoxPanelSelected';
+import type { PropsPanel } from '@/constants/types';
+import { moveDown, moveUp } from '@/lib/helpers';
+import type { Reducers } from '@/redux/types';
 
 const WorkspaceSummary = () => {
     const dispatch = useDispatch();

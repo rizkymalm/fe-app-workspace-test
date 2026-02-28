@@ -1,7 +1,7 @@
 // import DeskType1 from '@/public/images/workspace/desk-1.png';
 // import DeskType2 from '@/public/images/workspace/desk-2.png';
 
-import { PropsPanel } from './types';
+import type { PropsPanel } from './types';
 
 export const layoutPanel: PropsPanel[] = [
     {

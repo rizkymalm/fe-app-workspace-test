@@ -1,6 +1,6 @@
 import React from 'react';
-import { Spinner } from '../feature';
 
+import { Spinner } from '../feature';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     text: string;
@@ -29,7 +29,7 @@ const ButtonText = ({
             className={`flex justify-center rounded-none bg-transparent dark:hover:border-transparent active:dark:bg-accent-dark/10 ${className ?? ''}`}
             {...props}
         >
-            {loading ? <Spinner size={size} color='neutral' /> : text}
+            {loading ? <Spinner size={size} color="neutral" /> : text}
         </button>
     );
 };

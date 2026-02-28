@@ -1,13 +1,14 @@
 'use client';
 
 import { Icon } from '@iconify/react';
+import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import type { JSX } from 'react/jsx-runtime';
 
 import LogoRectangle from '@/public/images/digimal-rectangle-dark-theme.png';
+
 import { sidebarConfig } from './SidebarConfig';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { JSX } from 'react/jsx-runtime';
 
 interface PropsSidebar {
     name: string;
@@ -27,6 +28,7 @@ interface PropsSubmenu {
 }
 
 const DashboardSidebar = () => {
+    const pathname = usePathname();
     const router = useRouter();
     const [accordion, setAccordion] = useState('');
     const handleSubmenuAccordion = (path: string) => {
@@ -45,7 +47,7 @@ const DashboardSidebar = () => {
                         item.type === 'menu' ? (
                             <li className="relative my-2" key={item.pathMatch}>
                                 <div
-                                    className={`flex w-full cursor-pointer justify-start gap-1 rounded-md p-2 ${location.pathname === item.pathMatch && 'bg-accent-light/40 dark:bg-accent-dark/40'} hover:bg-accent-light/20`}
+                                    className={`flex w-full cursor-pointer justify-start gap-1 rounded-md p-2 ${pathname === item.pathMatch && 'bg-accent-light/40 dark:bg-accent-dark/40'} hover:bg-accent-light/20`}
                                     onClick={() =>
                                         item.link && !item.submenu
                                             ? router.push(item.link)
@@ -87,7 +89,7 @@ const DashboardSidebar = () => {
                                             {item.submenu.map(
                                                 (subitem: PropsSubmenu) => (
                                                     <li
-                                                        className={`ty-body-sm rounded-r-md py-2 pl-8 hover:bg-accent-light/20 hover:dark:bg-accent-dark/20 ${location.pathname === subitem.pathMatch && 'bg-accent-light/40 dark:bg-accent-dark/40'}`}
+                                                        className={`ty-body-sm rounded-r-md py-2 pl-8 hover:bg-accent-light/20 hover:dark:bg-accent-dark/20 ${pathname === subitem.pathMatch && 'bg-accent-light/40 dark:bg-accent-dark/40'}`}
                                                         onClick={() =>
                                                             router.push(
                                                                 subitem.link

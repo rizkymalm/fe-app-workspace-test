@@ -10,13 +10,15 @@ export const postVisitors = async ({ data, callback }: Props) => {
         await apiFetch({
             endpoint: '/visitors',
             method: 'POST',
-            data
+            data,
         });
         callback();
     } catch (error: any) {
         if (error.response) {
             if (error.response.data.statusCode === 5000) {
+                callback(error.response.data.statusCode);
             } else {
+                callback(error);
             }
         }
     }

@@ -1,10 +1,13 @@
 'use client';
-import { TabContent, TabGrid } from '@/components/tabs';
+
 import { useState } from 'react';
-import PanelDesk from './panels/PanelDesk';
-import PanelLayout from './panels/PanelLayout';
+
+import { TabContent, TabGrid } from '@/components/tabs';
+
 import PanelAccessories from './panels/PanelAccessories';
 import PanelChair from './panels/PanelChair';
+import PanelDesk from './panels/PanelDesk';
+import PanelLayout from './panels/PanelLayout';
 import PanelMonitor from './panels/PanelMonitor';
 
 const tabOption = ['Layout', 'Desk', 'Chair', 'Monitor', 'Accecories'];

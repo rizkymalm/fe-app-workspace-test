@@ -1,11 +1,12 @@
 'use client';
 
-import BoxPanelSelection from '@/components/panel/BoxPanelSelection';
 import { useDispatch, useSelector } from 'react-redux';
-import { Reducers } from '@/redux/types';
+
+import BoxPanelSelection from '@/components/panel/BoxPanelSelection';
 import { deskPanel } from '@/constants/desk';
+import type { PropsPanel } from '@/constants/types';
 import { checkValueExists } from '@/lib/helpers';
-import { PropsPanel } from '@/constants/types';
+import type { Reducers } from '@/redux/types';
 
 const PanelDesk = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const PanelDesk = () => {
         type,
         pos,
     }: PropsPanel) => {
-        let data: any[] = workspaceState?.editor?.data || [];
+        const data: any[] = workspaceState?.editor?.data || [];
         const check = checkValueExists(data, 'id', id);
         if (!check) {
             data.push({
@@ -42,7 +43,6 @@ const PanelDesk = () => {
             {deskPanel.map((item: PropsPanel, index: number) => (
                 <BoxPanelSelection
                     image={item.image}
-                    name={item.name}
                     key={item.name}
                     onClick={() => {
                         handleSelectPanel(deskPanel[index]);

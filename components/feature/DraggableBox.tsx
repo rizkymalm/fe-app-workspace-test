@@ -1,14 +1,11 @@
-import { Icon } from '@iconify/react';
 import React, { useRef } from 'react';
-import Draggable from 'react-draggable';
 import { Rnd } from 'react-rnd';
+
 import { ButtonIcon } from '../button';
 
-interface PropsResize {
-    width: number;
-    height: number;
-}
-interface PropsPosition {
+interface PropsResizePosition {
+    width?: number;
+    height?: number;
     x: number;
     y: number;
 }
@@ -24,8 +21,7 @@ interface Props {
         y: number;
     };
     isActive?: boolean;
-    handleResize: (value: PropsResize) => void;
-    handlePosition: (value: PropsPosition) => void;
+    handleResPos: (value: PropsResizePosition) => void;
     onRemove: () => void;
 }
 
@@ -34,42 +30,42 @@ const DraggableBox = ({
     size,
     position,
     isActive = false,
-    handleResize,
-    handlePosition,
+    handleResPos,
     onRemove,
 }: Props) => {
     const nodeRef = useRef(null);
-    const trackPos = (data: any) => {
-        handlePosition({ x: data.x, y: data.y });
-    };
-    const trackSize = ({
+
+    const trackSizeNPosition = ({
         width,
         height,
-    }: {
-        width: number;
-        height: number;
-    }) => {
-        handleResize({ width: width, height: height });
+        x,
+        y,
+    }: PropsResizePosition) => {
+        handleResPos({ width, height, x, y });
     };
     return (
         <Rnd
             nodeRef={nodeRef}
             bounds="parent"
             position={position}
-            onDragStop={(e, data) => trackPos(data)}
-            onResizeStop={(e, direction, ref, delta, position) => {
-                trackSize({
-                    width: parseInt(ref.style.width),
-                    height: parseInt(ref.style.height),
+            onDragStop={(e, data) => {
+                trackSizeNPosition({ x: data.x, y: data.y });
+            }}
+            onResizeStop={(e, direction, ref, delta, positions) => {
+                trackSizeNPosition({
+                    width: parseInt(ref.style.width, 10),
+                    height: parseInt(ref.style.height, 10),
+                    x: positions.x,
+                    y: positions.y,
                 });
             }}
             size={size}
         >
             <div
                 ref={nodeRef}
-                className={`h-full w-full rounded-sm [&>.button-selector]:hover:opacity-100 ${isActive && 'border border-dashed border-accent-light/50'}`}
+                className={`size-full rounded-sm [&>.button-selector]:hover:opacity-100 ${isActive && 'border border-dashed border-accent-light/50'}`}
             >
-                <div className="absolute right-0 top-0 h-8 w-8 button-selector opacity-0">
+                <div className="button-selector absolute right-0 top-0 size-8 opacity-0">
                     <ButtonIcon
                         icon="mdi:close"
                         iconSize={16}

@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import type { Action } from '@/redux/types';
+
 import { authReducers } from './authReducers';
 import { systemReducer } from './systemReducer';
 import { workspaceReducer } from './workspaceReducer';
@@ -20,7 +21,7 @@ const persistConfig: PersistProps = {
 const appReducer = combineReducers({
     auth: authReducers,
     system: systemReducer,
-    workspace: workspaceReducer
+    workspace: workspaceReducer,
 });
 
 const rootReducer = (state: any, action: Action) => {

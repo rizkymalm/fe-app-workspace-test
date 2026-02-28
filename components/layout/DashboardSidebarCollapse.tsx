@@ -1,12 +1,12 @@
 import { Icon } from '@iconify/react';
+import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
+import type { JSX } from 'react/jsx-runtime';
 
 import IconSquare from '@/public/images/icon-dark.png';
-import { sidebarConfig } from './SidebarConfig';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
-import { JSX } from 'react/jsx-runtime';
+import { sidebarConfig } from './SidebarConfig';
 
 interface PropsSidebar {
     name: string;
@@ -26,6 +26,7 @@ interface PropsSubmenu {
 }
 
 const DashboardSidebarCollapse = () => {
+    const pathname = usePathname();
     const router = useRouter();
     const [accordion, setAccordion] = useState('');
     const handleSubmenuAccordion = (path: string) => {
@@ -45,7 +46,7 @@ const DashboardSidebarCollapse = () => {
                         (item: PropsSidebar) =>
                             item.type === 'menu' && (
                                 <li
-                                    className={`relative my-2 flex cursor-pointer justify-center rounded-md p-2 ${location.pathname === item.pathMatch && 'bg-accent-light/40 dark:bg-accent-dark/40'} text-text-light-primary hover:bg-accent-light/20 dark:text-text-dark-primary hover:dark:bg-accent-dark/20`}
+                                    className={`relative my-2 flex cursor-pointer justify-center rounded-md p-2 ${pathname === item.pathMatch && 'bg-accent-light/40 dark:bg-accent-dark/40'} text-text-light-primary hover:bg-accent-light/20 dark:text-text-dark-primary hover:dark:bg-accent-dark/20`}
                                     key={item.pathMatch}
                                 >
                                     <div
@@ -86,7 +87,7 @@ const DashboardSidebarCollapse = () => {
                                             <ul className="w-full">
                                                 {item.submenu.map(subitem => (
                                                     <li
-                                                        className={`flex whitespace-nowrap px-4 py-2 hover:bg-accent-light/20 hover:dark:bg-accent-dark/20 ${location.pathname === subitem.pathMatch && 'bg-accent-light/40 dark:bg-accent-dark/40'}`}
+                                                        className={`flex whitespace-nowrap px-4 py-2 hover:bg-accent-light/20 hover:dark:bg-accent-dark/20 ${pathname === subitem.pathMatch && 'bg-accent-light/40 dark:bg-accent-dark/40'}`}
                                                         key={subitem.link}
                                                         onClick={() =>
                                                             router.push(

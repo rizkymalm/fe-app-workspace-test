@@ -21,7 +21,7 @@ export interface Action {
 export interface Reducers {
     auth: AuthState;
     system: SystemState;
-    workspace: WorkspaceState
+    workspace: WorkspaceState;
 }
 
 export interface AuthState {
@@ -49,7 +49,7 @@ export interface SystemState {
     themes: string;
 }
 
-export interface WorkspaceState{
+export interface WorkspaceState {
     editor: {
         loading: boolean;
         error: string;

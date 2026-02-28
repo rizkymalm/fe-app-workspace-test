@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "lint:staged": "lint-staged"
   },
   "dependencies": {
@@ -29,14 +29,14 @@
   },
   "devDependencies": {
     "@eslint/config-helpers": "^0.5.1",
-    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.39.2",
     "@tailwindcss/postcss": "^4",
     "@types/eslint-plugin-tailwindcss": "^3.17.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^8",
+    "eslint": "^9",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
