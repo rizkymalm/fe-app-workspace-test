@@ -28,6 +28,18 @@ export const layoutPanel: PropsPanel[] = [
             y: 0,
         },
     },
+    {
+        id: 'layout_3',
+        name: 'Layout Type 3',
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/layout-3.png`,
+        width: 200,
+        height: 200,
+        type: 'layout',
+        pos: {
+            x: 0,
+            y: 0,
+        },
+    },
 ];
 
 export const deskPanel: PropsPanel[] = [
@@ -47,6 +59,42 @@ export const deskPanel: PropsPanel[] = [
         id: 'desk_2',
         name: 'Desk Type 2',
         image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/desk-2.png`,
+        width: 200,
+        height: 200,
+        type: 'desk',
+        pos: {
+            x: 0,
+            y: 0,
+        },
+    },
+    {
+        id: 'desk_3',
+        name: 'Desk Type 3',
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/desk-3.png`,
+        width: 200,
+        height: 200,
+        type: 'desk',
+        pos: {
+            x: 0,
+            y: 0,
+        },
+    },
+    {
+        id: 'desk_4',
+        name: 'Desk Type 4',
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/desk-4.png`,
+        width: 200,
+        height: 200,
+        type: 'desk',
+        pos: {
+            x: 0,
+            y: 0,
+        },
+    },
+    {
+        id: 'desk_5',
+        name: 'Desk Type 5',
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/desk-5.png`,
         width: 200,
         height: 200,
         type: 'desk',
@@ -94,6 +142,30 @@ export const accessoriesPanel: PropsPanel[] = [
             y: 0,
         },
     },
+    {
+        id: 'accessories_4',
+        name: 'accessories Type 4',
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/accessories-4.png`,
+        width: 200,
+        height: 200,
+        type: 'accessories',
+        pos: {
+            x: 0,
+            y: 0,
+        },
+    },
+    {
+        id: 'accessories_5',
+        name: 'accessories Type 5',
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/accessories-5.png`,
+        width: 200,
+        height: 200,
+        type: 'accessories',
+        pos: {
+            x: 0,
+            y: 0,
+        },
+    },
 ];
 
 export const chairPanel: PropsPanel[] = [
@@ -112,7 +184,19 @@ export const chairPanel: PropsPanel[] = [
     {
         id: 'chair_2',
         name: 'chair Type 2',
-        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/chair-1.png`,
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/chair-2.png`,
+        width: 200,
+        height: 200,
+        type: 'chair',
+        pos: {
+            x: 0,
+            y: 0,
+        },
+    },
+    {
+        id: 'chair_3',
+        name: 'chair Type 3',
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/chair-3.png`,
         width: 200,
         height: 200,
         type: 'chair',
@@ -139,7 +223,19 @@ export const monitorPanel: PropsPanel[] = [
     {
         id: 'monitor_2',
         name: 'monitor Type 2',
-        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/monitor-1.png`,
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/monitor-2.png`,
+        width: 200,
+        height: 200,
+        type: 'monitor',
+        pos: {
+            x: 0,
+            y: 0,
+        },
+    },
+    {
+        id: 'monitor_3',
+        name: 'monitor Type 3',
+        image: `${process.env.NEXT_PUBLIC_BASE_URL}/images/workspace/monitor-3.png`,
         width: 200,
         height: 200,
         type: 'monitor',

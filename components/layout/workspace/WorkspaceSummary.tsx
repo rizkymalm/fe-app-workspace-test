@@ -46,22 +46,24 @@ const WorkspaceSummary = () => {
     return (
         <div className="h-screen min-h-screen w-65 border-l border-text-dark-muted/30 bg-bg-light-1 px-4 pt-10 dark:border-text-dark-muted/30 dark:bg-dark-1">
             <h2 className="text-xl font-bold">Your Item</h2>
-            <div className="no-scrollbar flex max-h-[90%] w-full max-w-full flex-col-reverse gap-4 overflow-auto pt-6">
-                {selectedPanel.map((item: PropsPanel, index: number) => (
-                    <BoxPanelSelected
-                        image={item.image}
-                        key={item.name}
-                        onDelete={() => {
-                            handleRemovePanel(index);
-                        }}
-                        onClickUp={() => {
-                            handleUp(index);
-                        }}
-                        onClickDown={() => {
-                            handleDown(index)
-                        }}
-                    />
-                ))}
+            <div className="no-scrollbar max-h-[90%] w-full max-w-full overflow-auto">
+                <div className="flex w-full max-w-full flex-col-reverse gap-4 pt-6">
+                    {selectedPanel.map((item: PropsPanel, index: number) => (
+                        <BoxPanelSelected
+                            image={item.image}
+                            key={item.name}
+                            onDelete={() => {
+                                handleRemovePanel(index);
+                            }}
+                            onClickUp={() => {
+                                handleUp(index);
+                            }}
+                            onClickDown={() => {
+                                handleDown(index);
+                            }}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );
