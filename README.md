@@ -8,6 +8,7 @@ An interactive workspace builder built with Next.js, allowing users to configure
 
 Click the image above to watch the full demo on YouTube.
 
+Link Demo: https://app-workspace.rizkymalm.com/ or https://next-gmbh-test.vercel.app/
 Repository: https://github.com/rizkymalm/next-gmbh-test/
 
 ---
